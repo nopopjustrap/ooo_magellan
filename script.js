@@ -88,10 +88,13 @@ class MagellanCapital {
         // Сохраняем целевые значения для всех счетчиков
         document.querySelectorAll('[data-target]').forEach(counter => {
             const target = parseFloat(counter.getAttribute('data-target'));
-            const isMetric = counter.classList.contains('metric-value');
-            const suffix = isMetric ? this.getSuffix(counter) : '%';
-            
-            counter.setAttribute('data-suffix', suffix);
+
+            // Устанавливаем суффикс только если он явно не задан в HTML
+            if (!counter.hasAttribute('data-suffix')) {
+                const isMetric = counter.classList.contains('metric-value');
+                const defaultSuffix = isMetric ? '' : '%';
+                counter.setAttribute('data-suffix', defaultSuffix);
+            }
             counter.textContent = '0';
         });
     }
