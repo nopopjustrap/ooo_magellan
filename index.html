@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magellan Capital | Инвестиционная компания</title>
+    <!-- Шрифты: Inter и JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">MAGELLAN CAPITAL</a>
+            <div class="nav-links">
+                <a href="#work" class="nav-link">РАБОТА</a>
+                <a href="#team" class="nav-link">КОМАНДА</a>
+                <a href="#deals" class="nav-link">СДЕЛКИ</a>
+                <a href="#analytics" class="nav-link">АНАЛИТИКА</a>
+                <a href="#contact" class="nav-link">КОНТАКТЫ</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero секция -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="fade-in">
+                        <h1>Инвестируем<br>в технологии<br>будущего</h1>
+                        <div class="hero-subhead">
+                            <p class="subhead">Фокус на deep tech, автоматизацию и финансовые алгоритмы. Партнерство с фондами и частными инвесторами.</p>
+                        </div>
+                    </div>
+                    <div class="hero-stats fade-in">
+                        <div class="stat-item">
+                            <span class="stat-number mono" data-target="182">0</span>
+                            <span class="stat-label">Доходность портфеля (5 лет)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number mono" data-target="2.4">0</span>
+                            <span class="stat-label">Активы под управлением</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number mono" data-target="47">0</span>
+                            <span class="stat-label">Портфельных компаний</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number mono" data-target="9">0</span>
+                            <span class="stat-label">Лет на рынке</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Принципы работы -->
+        <section id="work" class="section">
+            <div class="container">
+                <div class="section-title slide-in">
+                    <span class="mono">/ Принципы работы</span>
+                </div>
+                <div class="grid-3">
+                    <div class="card slide-in">
+                        <span class="card-number mono">01</span>
+                        <h3>Data-driven подход</h3>
+                        <p>Все решения основаны на количественном анализе и машинном обучении. Никакой интуиции — только цифры.</p>
+                    </div>
+                    <div class="card slide-in">
+                        <span class="card-number mono">02</span>
+                        <h3>Long-term горизонт</h3>
+                        <p>Мы входим в капитал на 5–10 лет, помогая компаниям масштабироваться без давления квартальной отчетности.</p>
+                    </div>
+                    <div class="card slide-in">
+                        <span class="card-number mono">03</span>
+                        <h3>Полная прозрачность</h3>
+                        <p>Открытая отчетность и регулярные вебинары для инвесторов. Никаких скрытых комиссий.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Метрики -->
+        <section id="analytics" class="section">
+            <div class="container">
+                <div class="metrics-panel fade-in">
+                    <div class="metric-item">
+                        <div class="metric-value mono" data-target="890">0</div>
+                        <div class="metric-desc">Инвестировано в 2024 году</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value mono" data-target="32">0</div>
+                        <div class="metric-desc">Средняя доля в портфельных компаниях</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value mono" data-target="12">0</div>
+                        <div class="metric-desc">Успешных выходов (IPO / M&A)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Последние сделки -->
+        <section id="deals" class="section">
+            <div class="container">
+                <div class="section-title slide-in">
+                    <span class="mono">/ Последние сделки</span>
+                </div>
+                <div class="table-wrapper fade-in">
+                    <table class="deals-table">
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Компания</th>
+                                <th>Сектор</th>
+                                <th>Инвестиции</th>
+                                <th>Оценка</th>
+                            </tr>
+                        </thead>
+                        <tbody id="deals-table-body">
+                            <!-- Данные будут загружены динамически через JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Офисы и Пресса -->
+        <section id="team" class="section">
+            <div class="container">
+                <div class="info-grid fade-in">
+                    <div class="info-block">
+                        <span class="mono info-label">/ Офисы</span>
+                        <div class="offices-list">
+                            <p class="office-item">Нью-Йорк</p>
+                            <p class="office-item">Лондон</p>
+                            <p class="office-item">Сингапур</p>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <span class="mono info-label">/ Пресса о нас</span>
+                        <div class="press-list" id="press-list">
+                            <!-- Данные будут загружены динамически -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-block fade-in">
+                    <h2 class="contact-title">Свяжитесь с нами</h2>
+                    <p class="contact-text">Для получения информации о возможностях инвестирования и партнерства</p>
+                    <a href="mailto:info@magellan.capital" class="contact-email mono">info@magellan.capital</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-copyright">
+                    © MAGELLAN CAPITAL 2025<br>Все права защищены
+                </div>
+                <div class="footer-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">Документы</a>
+                    <a href="#">Compliance</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подвал с дополнительной информацией -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <span class="mono">M A G E L L A N   C A P I T A L   —   И Н В Е С Т И Ц И О Н Н А Я   К О М П А Н И Я</span>
+                <span class="mono">ver. 2.0 · стратегия роста</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
