@@ -15,10 +15,15 @@
     --card-bg: #ffffff;
     --accent-gray: #9aaebf;
     --transition: all 0.3s ease;
+    --header-height: 80px;
+    --container-padding: 20px;
+    --border-radius: 0px;
 }
 
+/* Базовые стили */
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -28,7 +33,9 @@ body {
     line-height: 1.5;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* Моноширинный шрифт */
@@ -37,24 +44,27 @@ body {
     letter-spacing: -0.02em;
 }
 
+/* Контейнер */
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 var(--container-padding);
+    width: 100%;
 }
 
 /* Типографика */
 h1 {
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
     font-weight: 600;
     line-height: 1.0;
     letter-spacing: -0.03em;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
+    word-break: break-word;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -62,13 +72,13 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 4vw, 1.5rem);
     font-weight: 500;
     letter-spacing: -0.01em;
 }
 
 .subhead {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     color: var(--text-secondary);
     max-width: 600px;
     font-weight: 400;
@@ -78,26 +88,34 @@ h3 {
 .navbar {
     position: sticky;
     top: 0;
-    background-color: rgba(248, 250, 252, 0.95);
+    background-color: rgba(248, 250, 252, 0.98);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-light);
-    padding: 20px 0;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
     font-weight: 600;
     letter-spacing: -0.02em;
     text-decoration: none;
     color: var(--text-primary);
     transition: var(--transition);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
 }
 
 .logo:hover {
@@ -106,18 +124,19 @@ h3 {
 
 .nav-links {
     display: flex;
-    gap: 48px;
+    gap: clamp(20px, 4vw, 48px);
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
     text-transform: uppercase;
     letter-spacing: 0.02em;
     transition: var(--transition);
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -148,6 +167,7 @@ h3 {
     border: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1001;
 }
 
 .mobile-menu-btn span {
@@ -155,30 +175,31 @@ h3 {
     height: 2px;
     background-color: var(--text-primary);
     transition: var(--transition);
+    border-radius: 2px;
 }
 
 /* Hero секция */
 .hero {
-    padding: 60px 0 80px 0;
+    padding: clamp(30px, 6vw, 60px) 0 clamp(40px, 8vw, 80px);
 }
 
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 0.9fr;
-    gap: 60px;
+    gap: clamp(30px, 5vw, 60px);
     align-items: end;
 }
 
 .hero-subhead {
-    margin-top: 30px;
+    margin-top: clamp(20px, 4vw, 30px);
 }
 
 .hero-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(20px, 4vw, 40px);
     border-left: 2px solid var(--border-medium);
-    padding-left: 40px;
+    padding-left: clamp(20px, 4vw, 40px);
 }
 
 .stat-item {
@@ -187,33 +208,35 @@ h3 {
 }
 
 .stat-number {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 500;
     color: var(--text-primary);
     line-height: 1.1;
     margin-bottom: 8px;
+    word-break: break-word;
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
     text-transform: uppercase;
     letter-spacing: 0.03em;
     color: var(--text-tertiary);
     font-weight: 500;
+    line-height: 1.4;
 }
 
 /* Секции */
 .section {
-    padding: 40px 0;
+    padding: clamp(20px, 4vw, 40px) 0;
 }
 
 .section-title {
-    margin: 60px 0 40px 0;
-    font-size: 2rem;
+    margin: clamp(30px, 6vw, 60px) 0 clamp(20px, 4vw, 40px);
+    font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: 500;
     letter-spacing: -0.02em;
     border-top: 2px solid var(--border-medium);
-    padding-top: 40px;
+    padding-top: clamp(20px, 4vw, 40px);
 }
 
 .section-title span {
@@ -224,16 +247,19 @@ h3 {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: clamp(15px, 3vw, 30px);
 }
 
 /* Карточки */
 .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-light);
-    padding: 40px 30px;
+    padding: clamp(25px, 5vw, 40px) clamp(20px, 4vw, 30px);
     transition: var(--transition);
     cursor: default;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -250,54 +276,63 @@ h3 {
     display: block;
 }
 
+.card h3 {
+    margin-bottom: 15px;
+}
+
 .card p {
     color: var(--text-secondary);
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
     line-height: 1.6;
+    flex-grow: 1;
 }
 
 /* Метрики */
 .metrics-panel {
     background-color: var(--card-bg);
     border: 1px solid var(--border-light);
-    padding: 60px 50px;
-    margin: 40px 0;
+    padding: clamp(30px, 6vw, 60px) clamp(25px, 5vw, 50px);
+    margin: clamp(20px, 4vw, 40px) 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: clamp(20px, 4vw, 30px);
 }
 
 .metric-item {
     text-align: left;
     flex: 1;
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .metric-value {
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     font-weight: 500;
     color: var(--text-primary);
     line-height: 1;
     margin-bottom: 8px;
+    word-break: break-word;
 }
 
 .metric-desc {
     color: var(--text-tertiary);
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     max-width: 200px;
+    line-height: 1.4;
 }
 
 /* Таблица */
 .table-wrapper {
     overflow-x: auto;
-    margin: 40px 0;
+    margin: clamp(20px, 4vw, 40px) 0;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--border-radius);
 }
 
 .deals-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
     min-width: 600px;
 }
 
@@ -307,13 +342,13 @@ h3 {
     font-weight: 500;
     color: var(--text-tertiary);
     border-bottom: 1px solid var(--border-medium);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
 
 .deals-table td {
-    padding: 18px 0;
+    padding: clamp(12px, 3vw, 18px) 0;
     border-bottom: 1px solid var(--border-light);
     color: var(--text-secondary);
     font-weight: 450;
@@ -322,6 +357,7 @@ h3 {
 .deals-table td:first-child {
     font-family: 'JetBrains Mono', monospace;
     color: var(--text-secondary);
+    white-space: nowrap;
 }
 
 .company-name {
@@ -333,70 +369,94 @@ h3 {
 .info-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 60px;
-    margin: 80px 0;
-    padding: 40px 0;
+    gap: clamp(30px, 6vw, 60px);
+    margin: clamp(40px, 8vw, 80px) 0;
+    padding: clamp(20px, 4vw, 40px) 0;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
 }
 
 .info-label {
     color: var(--accent-gray);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
     display: block;
     margin-bottom: 20px;
 }
 
+.offices-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .office-item {
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
     font-weight: 450;
-    margin-bottom: 10px;
     color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .press-item {
     border-bottom: 1px solid var(--border-light);
     padding-bottom: 15px;
-    margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.press-item span:first-child {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: var(--text-primary);
+    flex: 1;
 }
 
 .press-year {
     font-family: 'JetBrains Mono', monospace;
     color: var(--text-tertiary);
+    white-space: nowrap;
 }
 
 /* Контакты */
 .contact-block {
     text-align: center;
-    padding: 80px 0;
+    padding: clamp(40px, 8vw, 80px) clamp(20px, 4vw, 40px);
     background-color: var(--card-bg);
     border: 1px solid var(--border-light);
-    margin: 40px 0;
+    margin: clamp(20px, 4vw, 40px) 0;
+    border-radius: var(--border-radius);
 }
 
 .contact-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
 .contact-text {
     color: var(--text-secondary);
     margin-bottom: 2rem;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-email {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
     border-bottom: 1px solid var(--border-medium);
     padding-bottom: 4px;
     transition: var(--transition);
     display: inline-block;
+    word-break: break-all;
 }
 
 .contact-email:hover {
@@ -406,17 +466,17 @@ h3 {
 /* Футер */
 .footer {
     border-top: 1px solid var(--border-medium);
-    margin-top: 80px;
-    padding: 50px 0;
+    margin-top: clamp(40px, 8vw, 80px);
+    padding: clamp(30px, 6vw, 50px) 0;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: clamp(20px, 4vw, 30px);
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
 }
 
 .footer-copyright {
@@ -425,7 +485,7 @@ h3 {
 
 .footer-links {
     display: flex;
-    gap: 40px;
+    gap: clamp(20px, 4vw, 40px);
     flex-wrap: wrap;
 }
 
@@ -434,6 +494,7 @@ h3 {
     color: var(--text-primary);
     font-weight: 500;
     transition: var(--transition);
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
 }
 
 .footer-links a:hover {
@@ -443,7 +504,7 @@ h3 {
 .footer-bottom {
     background: var(--card-bg);
     border-top: 1px solid var(--border-light);
-    padding: 24px 0;
+    padding: clamp(16px, 4vw, 24px) 0;
 }
 
 .footer-bottom-content {
@@ -451,9 +512,14 @@ h3 {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: clamp(15px, 3vw, 20px);
     color: var(--accent-gray);
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
+
+.footer-bottom-content span {
+    word-break: break-word;
+    text-align: center;
 }
 
 /* Анимации */
@@ -479,8 +545,23 @@ h3 {
     transform: translateX(0);
 }
 
-/* Медиа-запросы */
+/* Активное состояние для навигации */
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ */
+
+/* Планшеты и маленькие ноутбуки */
 @media (max-width: 1024px) {
+    :root {
+        --container-padding: 30px;
+    }
+    
     .hero-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -492,28 +573,71 @@ h3 {
         border-top: 2px solid var(--border-medium);
         padding-top: 40px;
     }
+    
+    .grid-3 {
+        gap: 20px;
+    }
 }
 
+/* Планшеты */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
+    :root {
+        --container-padding: 20px;
+        --header-height: 70px;
     }
     
     .nav-links {
         display: none;
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        padding: 30px;
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        z-index: 999;
+        flex-direction: column;
+        gap: 0;
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-links .nav-link {
+        padding: 15px 0;
+        font-size: 1.2rem;
+        width: 100%;
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .nav-links .nav-link:last-child {
+        border-bottom: none;
     }
     
     .mobile-menu-btn {
         display: flex;
     }
     
-    .grid-3 {
-        grid-template-columns: 1fr;
+    .mobile-menu-btn.active span:first-child {
+        transform: rotate(45deg) translate(6px, 6px);
     }
     
-    .metrics-panel {
-        flex-direction: column;
-        padding: 40px 30px;
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-btn.active span:last-child {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .info-grid {
@@ -521,57 +645,169 @@ h3 {
         gap: 40px;
     }
     
+    .press-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
     .footer-content {
         flex-direction: column;
         gap: 20px;
+        text-align: center;
     }
     
     .footer-links {
-        gap: 20px;
+        justify-content: center;
     }
     
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
-    }
-    
-    h1 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-    }
-    
-    .contact-title {
-        font-size: 2rem;
-    }
-    
-    .contact-email {
-        font-size: 1.2rem;
+        gap: 10px;
     }
 }
 
-@media (max-width: 480px) {
+/* Большие мобильные */
+@media (max-width: 600px) {
     .hero-stats {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
+    }
+    
+    .stat-item {
+        text-align: left;
+    }
+    
+    .metrics-panel {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    
+    .metric-item {
+        width: 100%;
+    }
+    
+    .metric-desc {
+        max-width: 100%;
+    }
+    
+    .contact-email {
+        font-size: 1rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* Маленькие мобильные */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
     }
     
     .stat-number {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     .metric-value {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .office-item {
         font-size: 1.2rem;
     }
+    
+    .card {
+        padding: 25px 20px;
+    }
+    
+    .deals-table {
+        font-size: 0.8rem;
+    }
+    
+    .deals-table th,
+    .deals-table td {
+        padding: 12px 5px;
+    }
+    
+    .deals-table td:first-child {
+        font-size: 0.75rem;
+    }
 }
 
-/* Активное состояние для навигации */
-.nav-link.active {
-    color: var(--text-primary);
+/* Очень маленькие устройства */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .logo {
+        max-width: 60%;
+        font-size: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .metric-value {
+        font-size: 2rem;
+    }
+    
+    .contact-title {
+        font-size: 1.5rem;
+    }
+    
+    .contact-email {
+        font-size: 0.9rem;
+    }
 }
 
-.nav-link.active::after {
-    width: 100%;
+/* Ландшафтная ориентация на мобильных */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nav-links.show {
+        max-height: 300px;
+    }
+    
+    .hero {
+        padding: 20px 0 30px;
+    }
+}
+
+/* Высокая контрастность и доступность */
+@media (prefers-contrast: high) {
+    :root {
+        --border-light: #000000;
+        --text-secondary: #000000;
+    }
+}
+
+/* Поддержка темной темы (опционально) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --text-tertiary: #999999;
+        --border-light: #333333;
+        --border-medium: #444444;
+        --card-bg: #2d2d2d;
+        --accent-gray: #666666;
+    }
+    
+    .navbar {
+        background-color: rgba(26, 26, 26, 0.98);
+    }
 }
